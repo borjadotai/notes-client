@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -23,7 +24,7 @@ export default class Login extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -37,7 +38,7 @@ export default class Login extends Component {
       alert(e.message);
       this.setState({ isLoading: false });
     }
-  }
+  };
 
   render() {
     return (
@@ -60,6 +61,7 @@ export default class Login extends Component {
               type="password"
             />
           </FormGroup>
+          <Link to="/login/reset">Forgot password?</Link>
           <LoaderButton
             block
             bsSize="large"
